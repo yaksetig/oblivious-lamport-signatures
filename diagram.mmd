@@ -1,0 +1,40 @@
+---
+config:
+  look: handDrawn
+  theme: redux
+---
+
+flowchart TD
+    root["Merkle Root"] --> A["$$H(mpk_{0}, mpk_{1})$$"] & B["$$H(mpk_{2}, mpk_{3})$$"]
+
+
+    pk0_00["$$pk_{0, 0}$$"] --> sk0_00["$$sk_{0, 0}$$"] 
+    pk0_dots["$$\dots$$"] --> sk0_dots["$$\dots$$"] 
+    pk0_0n["$$pk_{0, n}$$"] --> sk0_0n["$$sk_{0, n}$$"]
+
+    pk0["$$mpk_{0}$$"] --> pk0_00 & pk0_dots & pk0_0n
+
+
+    pk1_00["$$pk_{0, 0}$$"] --> sk1_00["$$sk_{0, 0}$$"] 
+    pk1_dots["$$\dots$$"] --> sk1_dots["$$\dots$$"] 
+    pk1_0n["$$pk_{0, n}$$"] --> sk1_0n["$$sk_{0, n}$$"]
+
+    pk1["$$mpk_{1}$$"] --> pk1_00 & pk1_dots & pk1_0n
+
+
+    pk2_00["$$pk_{0, 0}$$"] --> sk2_00["$$sk_{0, 0}$$"] 
+    pk2_dots["$$\dots$$"]   --> sk2_dots["$$\dots$$"] 
+    pk2_0n["$$pk_{0, n}$$"] --> sk2_0n["$$sk_{0, n}$$"]
+
+    pk2["$$mpk_{2}$$"] --> pk2_00 & pk2_dots & pk2_0n
+
+
+    pk3_00["$$pk_{0, 0}$$"] --> sk3_00["$$sk_{0, 0}$$"] 
+    pk3_dots["$$\vdots$$"]   --> sk3_dots["$$\vdots$$"] 
+    pk3_0n["$$pk_{0, n}$$"] --> sk3_0n["$$sk_{0, n}$$"]
+
+    pk3["$$mpk_{3}$$"] --> pk3_00 & pk3_dots & pk3_0n
+
+
+    A --> pk0 & pk1
+    B --> pk2 & pk3
