@@ -1,0 +1,29 @@
+---
+config:
+  look: handDrawn
+  theme: redux
+---
+sequenceDiagram
+        participant A as Alice
+        participant S as Signer
+
+        note right of S: $$b \in \{0, 1\}$$
+
+        note right of S: $$sk_{i, b} \xleftarrow{\$}{\{0, 1\}^{n}}$$
+
+        note right of S: $$ msk = \{sk_{i, 0}, sk_{i, 1}\}_{i=0}^{n}$$
+        note right of S: $$ pk_{i, b} = H(sk_{i, b})$$
+
+        note right of S: $$ mpk = \{pk_{i, 0}, pk_{i, 1}\}_{i=0}^{n}$$
+
+        S ->> A: $$mpk$$
+
+        note left of A: $$d_{[0, ..., n]} = H(m)$$
+
+        A ->+ S: OT Protocol
+
+        S ->>- A: $$\sigma = (\sigma_{1}, ..., \sigma_{n}) $$
+
+        note left of A: $$\sigma_{i} = sk_{i, d_{i}}$$
+
+        note left of A: $$Verify(\sigma)$$
